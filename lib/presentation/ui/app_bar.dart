@@ -5,30 +5,47 @@ import 'package:robux_maker/presentation/ui/theme.dart';
 
 AppBar mainAppBar({required String title}) {
   return AppBar(
-    title: Text(
-      title,
-      style: GoogleFonts.montserrat(
-        color: Colors.black,
-        fontSize: 22.0,
-        fontWeight: FontWeight.w500,
+    title: Padding(
+      padding: const EdgeInsets.only(left: 31.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          InkWell(
+            onTap: () {},
+            child: const Icon(
+              Icons.menu,
+              color: Colors.black,
+              size: 32.0,
+            ),
+          ),
+          Expanded(
+            child: Center(
+              child: Text(
+                title,
+                style: GoogleFonts.montserrat(
+                  color: Colors.black,
+                  fontSize: 22.0,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     ),
     titleSpacing: 0, // removes padding from leading
-    leading: InkWell(
-      onTap: () {},
-      child: const Icon(
-        Icons.menu,
-        color: Colors.black,
-        size: 32.0,
-      ),
-    ),
+    automaticallyImplyLeading: false, // removes padding from leading
     actions: [
-      InkWell(
-        onTap: () {},
-        child: const Icon(
-          Icons.info_outline,
-          color: Colors.black,
-          size: 32.0,
+      Padding(
+        padding: const EdgeInsets.only(right: 31.0),
+        child: InkWell(
+          onTap: () {},
+          child: const Icon(
+            Icons.info_outline,
+            color: Colors.black,
+            size: 32.0,
+          ),
         ),
       )
     ],
