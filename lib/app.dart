@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:robux_maker/logic/makerstate/makerstate_bloc.dart';
-import 'package:robux_maker/presentation/screens/home_screen.dart';
-import 'package:robux_maker/presentation/screens/info_page.dart';
-import 'package:robux_maker/presentation/screens/robux_generated_page.dart';
 import 'package:robux_maker/presentation/screens/welcome_screen.dart';
 import 'package:robux_maker/presentation/ui/theme.dart';
 

@@ -2,22 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:robux_maker/presentation/ui/theme.dart';
 
-class LoginTextField extends StatelessWidget {
-  final bool isEmail;
-  const LoginTextField({
+class GeneratorTextField extends StatelessWidget {
+  final String hintText;
+  const GeneratorTextField({
     Key? key,
-    required this.isEmail,
+    required this.hintText,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextField(
       autofocus: false,
-      obscureText: isEmail ? false : true,
       style: GoogleFonts.montserrat(),
       decoration: InputDecoration(
         border: InputBorder.none,
-        hintText: isEmail ? 'E-Mail' : "Password",
+        hintText: hintText,
         hintStyle: GoogleFonts.montserrat(color: AppTheme.secondGrey),
         filled: true,
         fillColor: AppTheme.mainGrey,
