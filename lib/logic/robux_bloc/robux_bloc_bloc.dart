@@ -5,10 +5,10 @@ part 'robux_bloc_event.dart';
 part 'robux_bloc_state.dart';
 
 class RobuxBlocBloc extends Bloc<RobuxBlocEvent, RobuxBlocState> {
-  int _robuxToGenerate = 0;
+  int _robuxToGenerate = 0; // CACHE
   int _apiCalls = 0;
   int _robuxGenerated = 0;
-  String _username = "";
+  String _username = ""; // CACHE
 
   RobuxBlocBloc()
       : super(
@@ -22,11 +22,24 @@ class RobuxBlocBloc extends Bloc<RobuxBlocEvent, RobuxBlocState> {
     on<SelectRobuxAmount>(_selectRobuxAmount);
     on<GenerateRobux>(_generateRobux);
     on<ChangeUsername>(_changeUsername);
+    on<ClearCache>(_clearCache);
   }
 
   void _selectRobuxAmount(
       SelectRobuxAmount event, Emitter<RobuxBlocState> emit) {
     _robuxToGenerate = event.robuxToGenerate;
+
+    emit(RobuxBlocInitial(
+      apiCalls: _apiCalls,
+      robuxGenerated: _robuxGenerated,
+      robuxToGenerate: _robuxToGenerate,
+      username: _username,
+    ));
+  }
+
+  void _clearCache(ClearCache event, Emitter<RobuxBlocState> emit) {
+    _robuxToGenerate = 0;
+    _username = "";
 
     emit(RobuxBlocInitial(
       apiCalls: _apiCalls,

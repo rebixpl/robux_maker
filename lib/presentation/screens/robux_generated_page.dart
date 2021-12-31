@@ -42,6 +42,9 @@ class RobuxGeneratedPage extends StatelessWidget {
               color: AppTheme.mainGreen,
               text: "Go Back",
               onPressed: () {
+                context.read<RobuxBlocBloc>().add(
+                      const ClearCache(),
+                    );
                 Navigator.pushNamed(context, "/home");
               },
             ),

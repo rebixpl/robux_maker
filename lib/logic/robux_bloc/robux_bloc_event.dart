@@ -29,3 +29,10 @@ class ChangeUsername extends RobuxBlocEvent {
   @override
   List<Object> get props => [username];
 }
+
+class ClearCache extends RobuxBlocEvent {
+  const ClearCache();
+
+  @override
+  List<Object> get props => [];
+}
