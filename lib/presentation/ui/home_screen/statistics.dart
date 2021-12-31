@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:robux_maker/logic/robux_bloc/robux_bloc_bloc.dart';
+
 import 'package:robux_maker/presentation/ui/theme.dart';
 
 class StatisticsRBX extends StatelessWidget {
@@ -14,14 +17,18 @@ class StatisticsRBX extends StatelessWidget {
         Expanded(
           child: _statsCard(
             label: "Robux Generated",
-            value: 23,
+            value: context.select(
+              (RobuxBlocBloc bloc) => bloc.state.robuxGenerated,
+            ),
           ),
         ),
         const SizedBox(width: 20.0),
         Expanded(
           child: _statsCard(
-            label: "API Calls           ",
-            value: 23,
+            label: "API Calls",
+            value: context.select(
+              (RobuxBlocBloc bloc) => bloc.state.apiCalls,
+            ),
           ),
         ),
       ],

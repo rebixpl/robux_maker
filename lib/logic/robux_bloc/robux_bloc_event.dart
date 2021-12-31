@@ -16,8 +16,15 @@ class SelectRobuxAmount extends RobuxBlocEvent {
 }
 
 class GenerateRobux extends RobuxBlocEvent {
+  const GenerateRobux();
+
+  @override
+  List<Object> get props => [];
+}
+
+class ChangeUsername extends RobuxBlocEvent {
   final String username;
-  const GenerateRobux({required this.username});
+  const ChangeUsername({required this.username});
 
   @override
   List<Object> get props => [username];

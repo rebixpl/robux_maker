@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:robux_maker/logic/robux_bloc/robux_bloc_bloc.dart';
 import 'package:robux_maker/presentation/ui/generated_screen/success_text.dart';
 import 'package:robux_maker/presentation/ui/info_page/robux_maker_description.dart';
 import 'package:robux_maker/presentation/ui/theme.dart';
@@ -23,7 +25,11 @@ class RobuxGeneratedPage extends StatelessWidget {
             Align(
               alignment: Alignment.center,
               child: Text(
-                "400 ROBUX has been added to your @gamingpapiez2137 account!",
+                "${context.select(
+                  (RobuxBlocBloc bloc) => bloc.state.robuxToGenerate,
+                )} ROBUX has been added to your @${context.select(
+                  (RobuxBlocBloc bloc) => bloc.state.username,
+                )} account!",
                 style: GoogleFonts.montserrat(
                   color: Colors.black,
                   fontSize: 20.0,

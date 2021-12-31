@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:robux_maker/logic/robux_bloc/robux_bloc_bloc.dart';
 import 'package:robux_maker/presentation/ui/theme.dart';
 
 class RBXAmountSelection extends StatelessWidget {
@@ -46,6 +48,10 @@ class RBXAmountSelection extends StatelessWidget {
                   onTap: () {
                     debugPrint(
                         "$index pressed: ${robuxAmount[index]} robuxes to add");
+                    context.read<RobuxBlocBloc>().add(
+                          SelectRobuxAmount(
+                              robuxToGenerate: robuxAmount[index]),
+                        );
                     Navigator.pushNamed(context, "/robux_generator");
                   },
                   child: const Icon(

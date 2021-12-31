@@ -32,7 +32,7 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(height: 25.0),
               const RBXAmountSelection(),
               const SizedBox(height: 20.0),
-              _smallCategoryText(text: "Your Today Statistics"),
+              _smallCategoryText(text: "Current Session Statistics"),
               const SizedBox(height: 20.0),
               const StatisticsRBX(),
               const SizedBox(height: 20.0),
