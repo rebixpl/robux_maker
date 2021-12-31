@@ -3,7 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:robux_maker/presentation/ui/theme.dart';
 
-AppBar mainAppBar({required String title}) {
+AppBar mainAppBar({
+  required String title,
+  VoidCallback? onTapLeading,
+  VoidCallback? onTapActions,
+  bool isGoBackLeading = false,
+}) {
   return AppBar(
     title: Padding(
       padding: const EdgeInsets.only(left: 31.0),
@@ -12,9 +17,9 @@ AppBar mainAppBar({required String title}) {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           InkWell(
-            onTap: () {},
-            child: const Icon(
-              Icons.menu,
+            onTap: onTapLeading,
+            child: Icon(
+              isGoBackLeading ? Icons.arrow_back_ios : Icons.menu,
               color: Colors.black,
               size: 32.0,
             ),
@@ -37,17 +42,21 @@ AppBar mainAppBar({required String title}) {
     titleSpacing: 0, // removes padding from leading
     automaticallyImplyLeading: false, // removes padding from leading
     actions: [
-      Padding(
-        padding: const EdgeInsets.only(right: 31.0),
-        child: InkWell(
-          onTap: () {},
-          child: const Icon(
-            Icons.info_outline,
-            color: Colors.black,
-            size: 32.0,
-          ),
-        ),
-      )
+      isGoBackLeading
+          ? const SizedBox(
+              width: 32.0,
+            )
+          : Padding(
+              padding: const EdgeInsets.only(right: 31.0),
+              child: InkWell(
+                onTap: onTapActions,
+                child: const Icon(
+                  Icons.info_outline,
+                  color: Colors.black,
+                  size: 32.0,
+                ),
+              ),
+            )
     ],
     centerTitle: true,
     elevation: 0.0,

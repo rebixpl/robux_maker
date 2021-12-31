@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:robux_maker/presentation/ui/app_bar.dart';
 import 'package:robux_maker/presentation/ui/home_screen/horizontal_info_scroll.dart';
-import 'package:robux_maker/presentation/ui/home_screen/horizontal_scroll_indicator.dart';
 import 'package:robux_maker/presentation/ui/home_screen/robux_amount_selection.dart';
 import 'package:robux_maker/presentation/ui/home_screen/statistics.dart';
 
@@ -12,7 +11,11 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: mainAppBar(title: "Robux Maker"),
+      appBar: mainAppBar(
+        title: "Robux Maker",
+        onTapActions: () {},
+        onTapLeading: () {},
+      ),
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Padding(
