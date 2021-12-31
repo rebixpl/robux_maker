@@ -35,7 +35,9 @@ class RobuxGeneratedPage extends StatelessWidget {
             BigButton(
               color: AppTheme.mainGreen,
               text: "Go Back",
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, "/home");
+              },
             ),
             const SizedBox(height: 24.0),
             const RobuxMakerDescription(),

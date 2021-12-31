@@ -13,7 +13,9 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: mainAppBar(
         title: "Robux Maker",
-        onTapActions: () {},
+        onTapActions: () {
+          Navigator.pushNamed(context, "/info");
+        },
         onTapLeading: () {},
       ),
       body: SingleChildScrollView(

@@ -11,7 +11,9 @@ class InfoPage extends StatelessWidget {
       appBar: mainAppBar(
         title: "About This App",
         isGoBackLeading: true,
-        onTapLeading: () {},
+        onTapLeading: () {
+          Navigator.pop(context);
+        },
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 31.0),

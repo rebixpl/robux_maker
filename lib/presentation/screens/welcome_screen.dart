@@ -35,7 +35,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             BigButton(
               color: AppTheme.mainGreen,
               text: "Sign In",
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, "/home");
+              },
             ),
             const SizedBox(height: 19.0),
             _bottomTextButton(),

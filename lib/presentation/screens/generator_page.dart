@@ -56,7 +56,9 @@ class GeneratorScreen extends StatelessWidget {
               BigButton(
                 color: AppTheme.mainGreen,
                 text: "Generate ROBUX",
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, "/robux_generated");
+                },
               ),
               const SizedBox(height: 20.0),
               const RobuxMakerDescription(),

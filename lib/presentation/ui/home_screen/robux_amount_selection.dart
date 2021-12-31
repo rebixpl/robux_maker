@@ -46,6 +46,7 @@ class RBXAmountSelection extends StatelessWidget {
                   onTap: () {
                     debugPrint(
                         "$index pressed: ${robuxAmount[index]} robuxes to add");
+                    Navigator.pushNamed(context, "/robux_generator");
                   },
                   child: const Icon(
                     Icons.play_arrow_rounded,
